@@ -1,0 +1,9 @@
+packages:
+  - 'packages/*'
+  - 'apps/*'
+  - 'tools/*'
+
+# Build scripts are blocked by default; only these are allowed to run.
+onlyBuiltDependencies:
+  - better-sqlite3
+  - esbuild

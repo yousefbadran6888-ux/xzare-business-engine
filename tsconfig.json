@@ -1,0 +1,68 @@
+{
+  "files": [],
+  "references": [
+    {
+      "path": "./packages/core"
+    },
+    {
+      "path": "./packages/db"
+    },
+    {
+      "path": "./packages/barcode"
+    },
+    {
+      "path": "./packages/engine"
+    },
+    {
+      "path": "./apps/pos"
+    },
+    {
+      "path": "./apps/restaurant"
+    },
+    {
+      "path": "./apps/accounting"
+    },
+    {
+      "path": "./apps/inventory"
+    },
+    {
+      "path": "./apps/manufacturing"
+    },
+    {
+      "path": "./apps/workshop"
+    },
+    {
+      "path": "apps/service-center"
+    },
+    {
+      "path": "apps/clinic"
+    },
+    {
+      "path": "apps/laboratory"
+    },
+    {
+      "path": "apps/pharmacy"
+    },
+    {
+      "path": "./apps/hr"
+    },
+    {
+      "path": "./apps/crm"
+    },
+    {
+      "path": "./apps/education"
+    },
+    {
+      "path": "apps/gym"
+    },
+    {
+      "path": "apps/salon"
+    },
+    {
+      "path": "apps/hotel"
+    },
+    {
+      "path": "apps/real-estate"
+    }
+  ]
+}

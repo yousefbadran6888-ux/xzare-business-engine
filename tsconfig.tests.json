@@ -1,0 +1,27 @@
+{
+  "$comment": "Typechecks test files, which the emitting builds exclude. No output.",
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "noEmit": true,
+    "composite": false,
+    "declaration": false,
+    "declarationMap": false,
+    "incremental": false,
+    "types": [
+      "node"
+    ],
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "jsx": "react-jsx",
+    "lib": [
+      "ES2023",
+      "DOM",
+      "DOM.Iterable"
+    ]
+  },
+  "include": [
+    "packages/*/src/**/*.test.ts",
+    "apps/*/src/**/*.test.ts",
+    "vitest.config.ts"
+  ]
+}

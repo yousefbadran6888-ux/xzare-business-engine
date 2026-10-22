@@ -1,0 +1,15 @@
+{
+  "name": "xzare-real-estate",
+  "version": "0.1.0",
+  "private": true,
+  "main": "main.cjs",
+  "description": "Xzare Real Estate — brokerage units, owners, clients, contracts, escrow and commissions",
+  "author": "Xzare Software Solutions",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "@node-rs/argon2-win32-x64-msvc": "2.2.1",
+    "@xzare/engine": "workspace:*",
+    "@xzare/core": "workspace:*",
+    "@xzare/barcode": "workspace:*"
+  }
+}

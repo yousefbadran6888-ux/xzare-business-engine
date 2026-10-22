@@ -1,0 +1,15 @@
+{
+  "name": "xzare-pos",
+  "version": "0.3.0",
+  "private": true,
+  "main": "main.cjs",
+  "description": "Xzare POS — offline retail, stock and cash management",
+  "author": "Xzare Software Solutions",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "@node-rs/argon2-win32-x64-msvc": "2.2.1",
+    "@xzare/engine": "workspace:*",
+    "@xzare/core": "workspace:*",
+    "@xzare/barcode": "workspace:*"
+  }
+}

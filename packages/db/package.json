@@ -1,0 +1,25 @@
+{
+  "name": "@xzare/db",
+  "version": "0.1.0",
+  "private": true,
+  "description": "SQLite database infrastructure for the Xzare Business Engine: connection, pragmas, migrator, unit-of-work, integrity checks",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc --build"
+  },
+  "dependencies": {
+    "@xzare/core": "workspace:*",
+    "better-sqlite3": "13.0.3"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "9.6.0"
+  }
+}

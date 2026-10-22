@@ -1,0 +1,27 @@
+/* Arabic-first desktop foundations; assets are bundled by Vite for offline use. */
+@font-face { font-family: 'Cairo'; src: url('./fonts/Cairo-Variable.ttf') format('truetype'); font-style: normal; font-weight: 200 1000; font-display: swap; }
+:root {
+  --font-arabic: 'Cairo', 'Readex Pro', Tahoma, sans-serif;
+  --font-heading: 'Readex Pro', 'Cairo', Tahoma, sans-serif;
+  --domain-ink: #143b32;
+  --domain-primary: #08765b;
+  --domain-accent: #0898b0;
+  --domain-paper: #f2faf6;
+  --domain-line: #d8e8e2;
+}
+html, body { font-family: var(--font-arabic); font-synthesis: none; text-rendering: optimizeLegibility; }
+:where(button, input, select, textarea) { font-family: var(--font-arabic); }
+:where(h1, h2, h3, h4) { font-family: var(--font-heading); line-height: 1.5; letter-spacing: 0; }
+:where(button, input, select) { min-height: 44px; }
+:where(button, a, input, select, textarea):focus-visible { outline: 3px solid var(--domain-accent); outline-offset: 3px; }
+:where(td, .a-num, .cart-total strong, .clinic-time, .w-kanban-balance, .crm-stage-amount) { font-variant-numeric: tabular-nums; }
+:where(th) { white-space: nowrap; }
+:where(.a-scroll, .table-wrap, .crm-table-wrap, .gym-table, .s-table, .edu-table) { overscroll-behavior-inline: contain; scrollbar-width: thin; }
+:where(.a-modal, .modal) { border-radius: 16px; }
+[hidden] { display: none !important; }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }
+@media (max-width: 650px) {
+  :where(.a-form-row, .form-grid) { grid-template-columns: minmax(0, 1fr); }
+  :where(.toolbar, .a-row-actions, .r-toolbar, .crm-toolbar) { flex-wrap: wrap; }
+  :where(h1) { font-size: 24px; }
+}

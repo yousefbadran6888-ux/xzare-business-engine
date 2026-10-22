@@ -1,0 +1,299 @@
+@import '../../shared/domain-theme.css';
+.m-app {
+  --m-ink: #263850;
+  --m-blue: #405d9d;
+  --m-warm: #9a6a23;
+}
+.m-app .a-sidebar {
+  background: #1c2e47;
+}
+.m-app .a-sidebar nav button.active {
+  background: #f2f5fa;
+  color: #263850;
+}
+.m-app .a-sidebar nav button.active svg {
+  color: #405d9d;
+}
+.m-app .primary {
+  background: #405d9d;
+}
+.m-app .a-heading h1 {
+  letter-spacing: -0.025em;
+}
+.m-app .a-content {
+  max-width: 1536px;
+}
+.m-flow {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border: 1px solid #d6deeb;
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  background: white;
+}
+.m-flow button {
+  border: 0;
+  border-radius: 0;
+  background: none;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 22px;
+  text-align: right;
+  color: #263850;
+}
+.m-flow button + button {
+  border-right: 1px solid #d6deeb;
+}
+.m-flow button:hover {
+  background: #f2f5fa;
+}
+.m-flow button b {
+  font-size: 17px;
+}
+.m-flow button small {
+  display: block;
+  font-size: 12px;
+  color: #5d6c7f;
+  margin-top: 4px;
+}
+.m-flow button strong {
+  font:
+    600 28px Inter,
+    sans-serif;
+  margin-inline-start: auto;
+}
+.m-step {
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  background: #edf1f8;
+  border-radius: 50%;
+  font:
+    500 14px Inter,
+    sans-serif;
+  color: #405d9d;
+  flex-shrink: 0;
+}
+.m-overview-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 22px;
+}
+.m-toolbar {
+  display: flex;
+  gap: 12px;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  margin-bottom: 18px;
+}
+.m-toolbar label {
+  flex: 1;
+  min-width: 140px;
+}
+.m-status {
+  white-space: nowrap;
+  display: inline-block;
+  border-radius: 100px;
+  padding: 4px 12px;
+  font-size: 12px;
+  font-weight: 600;
+}
+.m-status.planned {
+  color: #4b5d76;
+  background: #edf1f8;
+}
+.m-status.started {
+  color: #875c1b;
+  background: #fcf1dc;
+}
+.m-status.completed {
+  color: #16746a;
+  background: #e3f4ef;
+}
+.m-status.cancelled {
+  color: #7e4248;
+  background: #f8e9ed;
+}
+.m-summary {
+  color: #44546b;
+  line-height: 1.9;
+  padding: 14px 0;
+  border-block: 1px solid #e0e6ee;
+  margin: 0 0 18px;
+}
+.m-bom-lines {
+  margin-block: 18px;
+}
+.m-bom-line {
+  display: grid;
+  grid-template-columns: minmax(0, 2.2fr) 1fr 1fr auto;
+  gap: 10px;
+  align-items: end;
+  margin-bottom: 14px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #e1e7ef;
+}
+.m-bom-line > button {
+  min-width: 34px;
+}
+.m-scan {
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+  padding: 14px;
+  background: #f1f5fb;
+  border-radius: 12px;
+  margin-top: 16px;
+}
+.m-scan label {
+  flex: 1;
+}
+.m-report-actions {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+.m-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-block: 14px;
+}
+.m-timeline > div {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #e2e7ef;
+}
+.m-timeline small {
+  display: block;
+  color: #647185;
+  margin-top: 5px;
+  font-size: 12px;
+}
+.m-preview {
+  margin-block: 16px;
+}
+.m-preview p {
+  padding: 8px 16px;
+}
+.m-ok {
+  color: #16746a;
+}
+.m-app table details ul {
+  padding-inline-start: 18px;
+  line-height: 1.8;
+}
+.m-app .a-sidebar nav {
+  overflow-y: auto;
+}
+.m-app .a-sidebar-foot span {
+  font-size: 9px;
+  letter-spacing: 1px;
+}
+.m-app .a-modal form > p {
+  line-height: 1.8;
+}
+.m-app textarea {
+  min-height: 70px;
+  width: 100%;
+  border: 1px solid #d1dae6;
+  border-radius: 8px;
+  padding: 10px;
+  font: inherit;
+  resize: vertical;
+}
+.m-app button:focus-visible {
+  outline: 3px solid #b5c6ed;
+  outline-offset: 3px;
+}
+@media (max-width: 1100px) {
+  .m-flow button {
+    padding: 16px 12px;
+    gap: 8px;
+  }
+  .m-flow button b {
+    font-size: 14px;
+  }
+  .m-flow button small {
+    font-size: 10px;
+  }
+  .m-flow button strong {
+    font-size: 22px;
+  }
+}
+@media (max-width: 760px) {
+  .m-flow {
+    grid-template-columns: 1fr;
+  }
+  .m-flow button + button {
+    border-right: 0;
+    border-top: 1px solid #d6deeb;
+  }
+  .m-bom-line {
+    grid-template-columns: 1fr 1fr;
+  }
+  .m-bom-line label:first-child {
+    grid-column: 1/-1;
+  }
+  .m-toolbar label {
+    min-width: 130px;
+  }
+  .m-scan {
+    flex-wrap: wrap;
+  }
+  .m-flow button small {
+    font-size: 12px;
+  }
+}
+@media print {
+  .m-flow,
+  .m-overview-actions,
+  .m-toolbar,
+  .m-report-actions {
+    display: none;
+  }
+  .m-workspace {
+    color: black;
+  }
+  .m-status {
+    background: none !important;
+    border: 1px solid #aaa;
+  }
+  .m-app .a-sheet {
+    overflow: visible;
+  }
+  .m-app table td {
+    white-space: normal;
+  }
+}
+
+
+/* Domain redesign palette */
+:root, .m-app {
+  --domain-ink: #282f35; --domain-primary: #94631b; --domain-accent: #d7982a; --domain-paper: #f3f4f2; --domain-line: #dde0da;
+  --ink: #282f35; --teal: #94631b; --border: #dde0da; --line: #dde0da; --muted: #637476;
+  --accent: #94631b; --primary: #94631b; --primary-dark: #282f35; --navy: #282f35; --blue: #94631b;
+  --a-navy: #282f35; --a-jade: #94631b; --a-paper: #f3f4f2; --a-line: #dde0da;
+  --r-navy: #282f35; --r-jade: #94631b; --r-amber: #d7982a; --r-paper: #f3f4f2;
+  --m-ink: #282f35; --m-blue: #94631b; --m-warm: #d7982a; --brass: #d7982a; --bg: #f3f4f2;
+}
+@media screen {
+  html, body, .m-app { background-color: var(--domain-paper); color: var(--domain-ink); font-family: var(--font-arabic); }
+  .m-app .a-sidebar { background-color: var(--domain-ink); color: #f4f7f6; }
+  .m-app .a-sidebar small, .m-app .a-sidebar footer, .m-app .a-sidebar .muted { color: #c5d4d1; }
+  .m-app .a-sidebar button { color: #dfe8e6; background: transparent; }
+  .m-app .a-sidebar button.active, .m-app .a-sidebar button[aria-current='page'] { color: #fff; background: color-mix(in srgb, var(--domain-primary) 48%, var(--domain-ink)); box-shadow: inset -3px 0 var(--domain-accent); }
+  .m-app button.primary { background: var(--domain-primary); border-color: var(--domain-primary); color: #fff; }
+  .m-app button.primary:hover { background: color-mix(in srgb, var(--domain-primary) 82%, #000); }
+  .m-app button { min-height: 44px; }
+  .m-app :is(input, select) { min-height: 44px; }
+  .m-app :is(h1, h2, h3, h4) { font-family: var(--font-heading); letter-spacing: 0; }
+  .m-app :focus-visible { outline-color: var(--domain-accent); }
+  .m-app :is(.a-sheet, .clinic-panel, .r-ticket, .crm-stage, .table-wrap) { border-color: var(--domain-line); }
+}

@@ -1,0 +1,50 @@
+appId: com.xzare.workshop
+productName: Xzare Workshop
+directories:
+  output: ../../artifacts/workshop
+files:
+  - dist/**
+  - main.cjs
+  - desktop-main.cjs
+  - windows-identity.cjs
+  - build/icon.ico
+  - preload.cjs
+  - license-public-key.pem
+  - licensing.json
+  - '!node_modules/@xzare/engine/dist/license-authority.*'
+  - package.json
+  - THIRD_PARTY_NOTICES.txt
+  - '!node_modules/@xzare/*/src/**'
+  - '!node_modules/zod/src/**'
+  - '!**/*.test.*'
+  - '!**/*.map'
+  - '!**/*.tsbuildinfo'
+  - '!node_modules/better-sqlite3/src/**'
+  - '!node_modules/better-sqlite3/deps/**'
+  - '!node_modules/better-sqlite3/prebuilds/darwin-*.node'
+  - '!node_modules/better-sqlite3/prebuilds/linux*.node'
+  - '!node_modules/better-sqlite3/prebuilds/win32-arm64.node'
+asar: true
+electronFuses:
+  runAsNode: false
+  enableNodeOptionsEnvironmentVariable: false
+  enableNodeCliInspectArguments: false
+  enableEmbeddedAsarIntegrityValidation: true
+  onlyLoadAppFromAsar: true
+asarUnpack:
+  - '**/*.node'
+npmRebuild: false
+win:
+  icon: build/icon.ico
+  target:
+    - target: nsis
+      arch: [x64]
+  artifactName: Xzare-Workshop-${version}-Setup.${ext}
+nsis:
+  oneClick: false
+  perMachine: false
+  allowToChangeInstallationDirectory: true
+  createDesktopShortcut: true
+  createStartMenuShortcut: true
+  deleteAppDataOnUninstall: false
+

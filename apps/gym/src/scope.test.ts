@@ -1,0 +1,4 @@
+import {it,expect} from 'vitest'
+import {ScopeGate} from './scope'
+it('pending member detail is rejected after one assigned membership is removed even if same member remains',async()=>{const g=new ScopeGate(),before={user:{role:'trainer'},memberships:[{id:'A'},{id:'B'}],members:[{id:'M'}]};g.update(before as any);const t=g.ticket();let resolve!:(v:string)=>void;const p=new Promise<string>(r=>resolve=r).then(x=>g.accept(t,'member','M')?x:null);g.update({...before,memberships:[{id:'B'}]} as any);resolve('old data for A and B');expect(await p).toBeNull()})
+it('logout and narrower role invalidate pending report tickets',()=>{const g=new ScopeGate();g.update({user:{role:'admin'},memberships:[],members:[]} as any);const t=g.ticket();g.update({user:{role:'trainer'},memberships:[],members:[]} as any);expect(g.current(t)).toBe(false);const t2=g.ticket();g.clear();expect(g.current(t2)).toBe(false)})

@@ -1,0 +1,12 @@
+# Generated — leave in the format the tool writes
+pnpm-lock.yaml
+dist/
+coverage/
+node_modules/
+*.tsbuildinfo
+.cache/
+.vendor/
+.pnpm-store/
+artifacts/
+data/
+apps/pos/types/

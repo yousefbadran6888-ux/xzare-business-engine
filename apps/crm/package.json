@@ -1,0 +1,15 @@
+{
+  "name": "xzare-crm",
+  "version": "0.1.0",
+  "private": true,
+  "main": "main.cjs",
+  "description": "Xzare CRM — assigned leads, sales pipeline, follow-ups and immutable quotations",
+  "author": "Xzare Software Solutions",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "@node-rs/argon2-win32-x64-msvc": "2.2.1",
+    "@xzare/engine": "workspace:*",
+    "@xzare/core": "workspace:*",
+    "@xzare/barcode": "workspace:*"
+  }
+}
