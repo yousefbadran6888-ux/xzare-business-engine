@@ -1,91 +1,104 @@
-# Xzare Business Software Suite
+# Xzare Business Engine
 
-Commercial desktop business software for the Egyptian market — Arabic-first, offline-first, sold
-under a one-time perpetual licence.
+**Arabic-first business software foundations: exact money, transactional SQLite, barcode input and shared desktop services.**
 
-The planned **30 products** share the **Xzare Business Engine** through composable engines.
-See [PRODUCT_PORTFOLIO.md](./docs/PRODUCT_PORTFOLIO.md) for the distinct workflows and implementation map.
-Fashion, Mobile and other retail specialties are POS editions, sharing one commerce foundation.
-The first operating application is **Xzare POS** in `apps/pos`: a real Arabic-first Windows
-application with catalog, inventory, cashier, purchases, credit/payments/returns, customers and
-suppliers, shifts/cash/expenses, reports, identity/roles/audit, backups and offline licensing.
-The second application is **Xzare Restaurant 0.1** in `apps/restaurant`, with real tables,
-kitchen tickets, frozen recipes/costs, delivery, reservations and waste reporting. It shares
-management infrastructure with POS and uses a separate database, backup identity and product-bound
-license. See [RESTAURANT_OPERATIONS.md](./docs/RESTAURANT_OPERATIONS.md). The other 28 products remain a roadmap.
+[الشرح بالعربية](REPOSITORY-AR.md) · [Getting started](docs/GETTING_STARTED.md) · [Contributing](CONTRIBUTING.md) · [Security](SECURITY.md) · [Roadmap](ROADMAP.md)
 
-Current Windows review installer: `artifacts/Xzare-POS-0.3.0-Setup.exe`.
-Restaurant review installer: `artifacts/restaurant/Xzare-Restaurant-0.1.0-Setup.exe`.
-Read [POS_OPERATIONS.md](./docs/POS_OPERATIONS.md) for first use, data paths, license issuance,
-verification evidence and limits. This is an unsigned first release; hardware and normal Windows
-sandbox execution outside the coding environment need acceptance testing before customer distribution.
+Xzare extracts common business rules into four TypeScript packages. A sale, stock movement or payment should use the same checked arithmetic, permissions and transaction boundaries wherever it appears. This repository includes 17 Windows application sources that exercise these foundations across different workflows.
+
+The focus is Arabic-speaking businesses and developers: Arabic numeric input, right-to-left interfaces, local data and workflows that can operate without a continuous connection. Money currently models Egyptian pounds as integer piastres; it is **not** a general foreign-exchange engine.
+
+## Project status
+
+Early public source release, maintained by [Xzare](https://github.com/yousefbadran6888-ux). This is implementation code with tests, alongside historical design and operating documents; it is not a certification that every application is ready for customer deployment.
+
+- **Implemented source:** four shared packages and 17 applications listed below.
+- **Design only:** product 18, Property Manager. Products 19–30 remain a roadmap.
+- **Local baseline, 22 October 2026:** TypeScript checks and 696 tests across 109 files passed before this public-source preparation. This records a local result, not an independent audit or the latest CI status. See [verification scope](docs/VERIFICATION.md).
+- **Distribution boundaries:** no customer databases, signing secrets or installers are included. Production activation hosting, publisher signing and physical-device acceptance remain separate deployment work.
+
+## Shared packages
+
+| Package | Responsibility |
+| --- | --- |
+| [`@xzare/core`](packages/core/src/index.ts) | Money, quantities, rounding, allocation, results, errors, IDs, clocks and redaction |
+| [`@xzare/db`](packages/db/src/index.ts) | SQLite connections, migrations, integrity checks and transactions |
+| [`@xzare/barcode`](packages/barcode/src/index.ts) | Checked identities, scale-label decoding and scanner framing |
+| [`@xzare/engine`](packages/engine/src/index.ts) | Identity, permissions, commerce, stock, cash, industry services, backup and licensing |
+
+```mermaid
+flowchart BT
+  Core[Core: money, quantities, results]
+  DB[SQLite infrastructure] --> Core
+  Barcode[Barcode primitives] --> Core
+  Engine[Business services] --> Core
+  Engine --> DB
+  Apps[17 Windows application sources] --> Engine
+  Apps --> Barcode
+  Apps --> Core
+```
+
+Workspace packages are not published to npm. Their `private` manifest fields prevent accidental npm publication and do not restrict the source license.
+
+## Try the core
+
+Use **Windows x64**, **Node.js 24** and **pnpm 10.12.1** for the full-workspace path. Windows-specific native dependencies currently prevent claiming full macOS/Linux support.
+
+```sh
+git clone https://github.com/yousefbadran6888-ux/xzare-business-engine.git
+cd xzare-business-engine
+npm install --global pnpm@10.12.1
+pnpm install --frozen-lockfile --ignore-scripts
+pnpm build
+node examples/core-money.mjs
+pnpm verify
+```
+
+The example needs no activation server, customer database or payment account:
+
+```js
+import { Money } from './packages/core/dist/index.js'
+
+const amount = Money.parse('١٢٣٤٫٥٠')
+if (!amount.ok) throw amount.error
+console.log(Money.toPiastres(amount.value)) // 123450
+console.log(Money.toDecimalString(amount.value)) // 1234.50
+const parts = Money.allocate(Money.fromPiastres(100), [1, 1, 1])
+console.log(parts.map(Money.toPiastres)) // [34, 33, 33]
+```
+
+Read [Getting started](docs/GETTING_STARTED.md) for native dependencies and desktop activation boundaries. A successful build does not imply a ready-to-use activated desktop installation.
+
+## Included applications
+
+| Area | Source applications |
+| --- | --- |
+| Commerce and operations | POS, Restaurant, Accounting, Inventory, Manufacturing |
+| Repair and services | Workshop, Service Center |
+| Health workflows | Clinic, Laboratory, Pharmacy |
+| People and customers | HR, CRM, Education, Gym, Salon |
+| Hospitality and property | Hotel, Real Estate |
+
+The [portfolio](docs/PRODUCT_PORTFOLIO.md) distinguishes existing sources from planned products. Healthcare and financial workflows require domain-specific acceptance before real use; no regulatory certification is claimed.
+
+## Contribute
+
+Useful first contributions include Arabic/English documentation corrections, reproducible numeric-input edge cases, barcode compatibility reports and focused regression tests. See [CONTRIBUTING.md](CONTRIBUTING.md). Arabic and English contributions are welcome. Do not include real customer or patient data in issues or tests.
+
+The [verification workflow](.github/workflows/verify.yml) runs installation, type checking, tests and the core example on Windows. See its actual status on [GitHub Actions](https://github.com/yousefbadran6888-ux/xzare-business-engine/actions/workflows/verify.yml).
 
 ## Documentation
 
-| Document                                           | Contents                                                                       |
-| -------------------------------------------------- | ------------------------------------------------------------------------------ |
-| [ARCHITECTURE.md](./ARCHITECTURE.md)               | Stack decisions, layering, database design, security, backup, licensing, risks |
-| [IMPLEMENTATION_PLAN.md](./IMPLEMENTATION_PLAN.md) | Milestones with verification criteria and progress log                         |
+- [Architecture](ARCHITECTURE.md), [roadmap](ROADMAP.md) and [maintainers](MAINTAINERS.md)
+- [Core security boundaries](docs/CORE_SECURITY.md) and [private vulnerability reporting](SECURITY.md)
+- [Barcode formats and scanner setup](docs/BARCODE_ENGINE.md)
+- [Historical activation/deployment guide](docs/ONLINE_LICENSING.md)
+- [Source license and third-party boundaries](docs/OPEN_SOURCE.md)
 
-## Requirements
+## License and contact
 
-- Node.js ≥ 22
-- pnpm ≥ 10
-- Target platform: 64-bit Windows 10/11
+Copyright © 2026 Xzare Software Solutions and contributors. First-party source and documentation in this revision are licensed under **GNU AGPL-3.0-only**, except files with their own third-party license notices. See [LICENSE](LICENSE) and [NOTICE](NOTICE).
 
-## Getting started
+The license permits use, modification and redistribution under its terms. Historical paid-activation descriptions do not impose additional conditions on source-code rights. Xzare names and logos do not grant endorsement of third-party distributions.
 
-```bash
-pnpm install --ignore-scripts
-pnpm verify      # typecheck (sources + tests) then run the test suite
-pnpm start:pos   # build and run the desktop application
-pnpm dev:pos     # isolated local HTTP preview on 127.0.0.1:5191
-pnpm start:restaurant # separate desktop application
-pnpm dev:restaurant   # local restaurant preview on 127.0.0.1:5196
-pnpm package:pos # build Windows NSIS installer
-```
-
-| Script            | Purpose                                                |
-| ----------------- | ------------------------------------------------------ |
-| `pnpm build`      | Compile all packages via TypeScript project references |
-| `pnpm typecheck`  | Typecheck sources **and** test files                   |
-| `pnpm test`       | Run the test suite once                                |
-| `pnpm test:watch` | Watch mode                                             |
-| `pnpm format`     | Apply Prettier                                         |
-| `pnpm verify`     | Typecheck + test — run this before every commit        |
-
-## Packages
-
-| Package            | Responsibility                                                                         |
-| ------------------ | -------------------------------------------------------------------------------------- |
-| `packages/core`    | Money, Quantity, pricing, Result, errors, ULID, Clock, logging                         |
-| `packages/barcode` | Checked barcode identities, integer scale-label codec, focused scanner framing         |
-| `packages/db`      | SQLite schema, integrity checks, immutable ledger triggers and transaction store       |
-| `packages/engine`  | Identity, commerce/stock/cash services, validated backup/restore and licensing runtime |
-| `apps/pos`         | React UI, hardened Electron process and preload, Windows packaging                     |
-
-Future dedicated packages and product applications follow `IMPLEMENTATION_PLAN.md`.
-Service validation and permissions currently live in `engine`; there are no placeholder package APIs.
-
-Core hardening and its verified boundaries are documented in [CORE_SECURITY.md](./docs/CORE_SECURITY.md).
-The 0.2 licensing upgrade is preserved in 0.3. Pending real-server/code-signing release requirements are documented in [ONLINE_LICENSING.md](./docs/ONLINE_LICENSING.md). The current installer is for review until the actual HTTPS authority is configured. The 0.3 interface adds two-step first setup, confirmed passwords, coherent navigation/icons, useful dashboard actions, keyboard help and responsive layouts; see [INTERFACE_REFRESH.md](./docs/INTERFACE_REFRESH.md).
-The core is usable in Node 22+ and isolated browser renderers. `CostBasis` preserves original
-inventory value across partial consumption; rounded unit prices must not be used as its replacement.
-Numeric input uses an explicit decimal-separator policy, and client errors use `toClientJSON()`.
-
-Barcode reference selection, scanner setup, scale configuration and integration boundaries are
-documented in [BARCODE_ENGINE.md](./docs/BARCODE_ENGINE.md). No reference code or assets were copied.
-The package stays independent of the catalog. POS integrates checked lookup, keyboard scanning,
-configured scale weight decoding, transactional stock changes and Canvas label printing.
-
-## Non-negotiable conventions
-
-These exist because the suite handles other people's money.
-
-- **Money is integer piastres.** Never a float, never `REAL` in SQLite. All arithmetic goes through
-  `Money`; splits use `Money.allocate`/`Money.split` so parts always re-sum exactly.
-- **Quantity is integer milli-units** (3 decimal places).
-- **`packages/domain` performs no I/O.** It imports `core` only — no database, Electron or React.
-- **Permissions are enforced in services**, never by hiding UI.
-- **Documents are atomic and idempotent**: one transaction, one `client_txn_id`.
-- **Ledgers are append-only**: corrections are reversing entries, not updates.
+Contact: [hello@xzare.com](mailto:hello@xzare.com). Report non-security problems through [Issues](https://github.com/yousefbadran6888-ux/xzare-business-engine/issues).

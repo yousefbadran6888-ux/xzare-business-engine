@@ -1,3 +1,9 @@
+# Public-source license notice
+
+This document describes branded desktop activation and historical deployment requirements. It does not restrict the AGPL-3.0-only rights granted for this source revision. Core examples and tests do not require a paid license. See [OPEN_SOURCE.md](OPEN_SOURCE.md) for the distinction.
+
+---
+
 # Xzare POS 0.2 — Online licensing and release gates
 
 Implemented locally; the service has **not** been deployed. No real HTTPS host/domain or Windows signing certificate was supplied. `apps/pos/licensing.json` deliberately has `origin: null`; activation stays disabled until the publisher sets the real origin and rebuilds. This installer is for review before commercial distribution.

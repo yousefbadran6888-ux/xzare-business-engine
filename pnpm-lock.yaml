@@ -48,165 +48,7 @@ importers:
         specifier: 5.0.3
         version: 5.0.3(@types/node@22.19.1)(vite@7.3.6(@types/node@22.19.1)(jiti@2.7.0))
 
-  apps/pos:
-    dependencies:
-      '@node-rs/argon2-win32-x64-msvc':
-        specifier: 2.2.1
-        version: 2.2.1
-      '@xzare/barcode':
-        specifier: workspace:*
-        version: link:../../packages/barcode
-      '@xzare/core':
-        specifier: workspace:*
-        version: link:../../packages/core
-      '@xzare/engine':
-        specifier: workspace:*
-        version: link:../../packages/engine
-
   apps/accounting:
-    dependencies:
-      '@node-rs/argon2-win32-x64-msvc':
-        specifier: 2.2.1
-        version: 2.2.1
-      '@xzare/barcode':
-        specifier: workspace:*
-        version: link:../../packages/barcode
-      '@xzare/core':
-        specifier: workspace:*
-        version: link:../../packages/core
-      '@xzare/engine':
-        specifier: workspace:*
-        version: link:../../packages/engine
-
-  apps/crm:
-    dependencies:
-      '@node-rs/argon2-win32-x64-msvc':
-        specifier: 2.2.1
-        version: 2.2.1
-      '@xzare/barcode':
-        specifier: workspace:*
-        version: link:../../packages/barcode
-      '@xzare/core':
-        specifier: workspace:*
-        version: link:../../packages/core
-      '@xzare/engine':
-        specifier: workspace:*
-        version: link:../../packages/engine
-
-
-  apps/education:
-    dependencies:
-      '@node-rs/argon2-win32-x64-msvc':
-        specifier: 2.2.1
-        version: 2.2.1
-      '@xzare/barcode':
-        specifier: workspace:*
-        version: link:../../packages/barcode
-      '@xzare/core':
-        specifier: workspace:*
-        version: link:../../packages/core
-      '@xzare/engine':
-        specifier: workspace:*
-        version: link:../../packages/engine
-
-
-  apps/gym:
-    dependencies:
-      '@node-rs/argon2-win32-x64-msvc':
-        specifier: 2.2.1
-        version: 2.2.1
-      '@xzare/barcode':
-        specifier: workspace:*
-        version: link:../../packages/barcode
-      '@xzare/core':
-        specifier: workspace:*
-        version: link:../../packages/core
-      '@xzare/engine':
-        specifier: workspace:*
-        version: link:../../packages/engine
-
-
-  apps/hotel:
-    dependencies:
-      '@node-rs/argon2-win32-x64-msvc':
-        specifier: 2.2.1
-        version: 2.2.1
-      '@xzare/barcode':
-        specifier: workspace:*
-        version: link:../../packages/barcode
-      '@xzare/core':
-        specifier: workspace:*
-        version: link:../../packages/core
-      '@xzare/engine':
-        specifier: workspace:*
-        version: link:../../packages/engine
-
-
-  apps/real-estate:
-    dependencies:
-      '@node-rs/argon2-win32-x64-msvc':
-        specifier: 2.2.1
-        version: 2.2.1
-      '@xzare/barcode':
-        specifier: workspace:*
-        version: link:../../packages/barcode
-      '@xzare/core':
-        specifier: workspace:*
-        version: link:../../packages/core
-      '@xzare/engine':
-        specifier: workspace:*
-        version: link:../../packages/engine
-
-
-  apps/salon:
-    dependencies:
-      '@node-rs/argon2-win32-x64-msvc':
-        specifier: 2.2.1
-        version: 2.2.1
-      '@xzare/barcode':
-        specifier: workspace:*
-        version: link:../../packages/barcode
-      '@xzare/core':
-        specifier: workspace:*
-        version: link:../../packages/core
-      '@xzare/engine':
-        specifier: workspace:*
-        version: link:../../packages/engine
-
-
-  apps/hr:
-    dependencies:
-      '@node-rs/argon2-win32-x64-msvc':
-        specifier: 2.2.1
-        version: 2.2.1
-      '@xzare/barcode':
-        specifier: workspace:*
-        version: link:../../packages/barcode
-      '@xzare/core':
-        specifier: workspace:*
-        version: link:../../packages/core
-      '@xzare/engine':
-        specifier: workspace:*
-        version: link:../../packages/engine
-
-
-  apps/pharmacy:
-    dependencies:
-      '@node-rs/argon2-win32-x64-msvc':
-        specifier: 2.2.1
-        version: 2.2.1
-      '@xzare/barcode':
-        specifier: workspace:*
-        version: link:../../packages/barcode
-      '@xzare/core':
-        specifier: workspace:*
-        version: link:../../packages/core
-      '@xzare/engine':
-        specifier: workspace:*
-        version: link:../../packages/engine
-
-
-  apps/laboratory:
     dependencies:
       '@node-rs/argon2-win32-x64-msvc':
         specifier: 2.2.1
@@ -236,7 +78,217 @@ importers:
         specifier: workspace:*
         version: link:../../packages/engine
 
+  apps/crm:
+    dependencies:
+      '@node-rs/argon2-win32-x64-msvc':
+        specifier: 2.2.1
+        version: 2.2.1
+      '@xzare/barcode':
+        specifier: workspace:*
+        version: link:../../packages/barcode
+      '@xzare/core':
+        specifier: workspace:*
+        version: link:../../packages/core
+      '@xzare/engine':
+        specifier: workspace:*
+        version: link:../../packages/engine
+
+  apps/education:
+    dependencies:
+      '@node-rs/argon2-win32-x64-msvc':
+        specifier: 2.2.1
+        version: 2.2.1
+      '@xzare/barcode':
+        specifier: workspace:*
+        version: link:../../packages/barcode
+      '@xzare/core':
+        specifier: workspace:*
+        version: link:../../packages/core
+      '@xzare/engine':
+        specifier: workspace:*
+        version: link:../../packages/engine
+
+  apps/gym:
+    dependencies:
+      '@node-rs/argon2-win32-x64-msvc':
+        specifier: 2.2.1
+        version: 2.2.1
+      '@xzare/barcode':
+        specifier: workspace:*
+        version: link:../../packages/barcode
+      '@xzare/core':
+        specifier: workspace:*
+        version: link:../../packages/core
+      '@xzare/engine':
+        specifier: workspace:*
+        version: link:../../packages/engine
+
+  apps/hotel:
+    dependencies:
+      '@node-rs/argon2-win32-x64-msvc':
+        specifier: 2.2.1
+        version: 2.2.1
+      '@xzare/barcode':
+        specifier: workspace:*
+        version: link:../../packages/barcode
+      '@xzare/core':
+        specifier: workspace:*
+        version: link:../../packages/core
+      '@xzare/engine':
+        specifier: workspace:*
+        version: link:../../packages/engine
+
+  apps/hr:
+    dependencies:
+      '@node-rs/argon2-win32-x64-msvc':
+        specifier: 2.2.1
+        version: 2.2.1
+      '@xzare/barcode':
+        specifier: workspace:*
+        version: link:../../packages/barcode
+      '@xzare/core':
+        specifier: workspace:*
+        version: link:../../packages/core
+      '@xzare/engine':
+        specifier: workspace:*
+        version: link:../../packages/engine
+
+  apps/inventory:
+    dependencies:
+      '@node-rs/argon2-win32-x64-msvc':
+        specifier: 2.2.1
+        version: 2.2.1
+      '@xzare/barcode':
+        specifier: workspace:*
+        version: link:../../packages/barcode
+      '@xzare/core':
+        specifier: workspace:*
+        version: link:../../packages/core
+      '@xzare/engine':
+        specifier: workspace:*
+        version: link:../../packages/engine
+
+  apps/laboratory:
+    dependencies:
+      '@node-rs/argon2-win32-x64-msvc':
+        specifier: 2.2.1
+        version: 2.2.1
+      '@xzare/barcode':
+        specifier: workspace:*
+        version: link:../../packages/barcode
+      '@xzare/core':
+        specifier: workspace:*
+        version: link:../../packages/core
+      '@xzare/engine':
+        specifier: workspace:*
+        version: link:../../packages/engine
+
+  apps/manufacturing:
+    dependencies:
+      '@node-rs/argon2-win32-x64-msvc':
+        specifier: 2.2.1
+        version: 2.2.1
+      '@xzare/barcode':
+        specifier: workspace:*
+        version: link:../../packages/barcode
+      '@xzare/core':
+        specifier: workspace:*
+        version: link:../../packages/core
+      '@xzare/engine':
+        specifier: workspace:*
+        version: link:../../packages/engine
+
+  apps/pharmacy:
+    dependencies:
+      '@node-rs/argon2-win32-x64-msvc':
+        specifier: 2.2.1
+        version: 2.2.1
+      '@xzare/barcode':
+        specifier: workspace:*
+        version: link:../../packages/barcode
+      '@xzare/core':
+        specifier: workspace:*
+        version: link:../../packages/core
+      '@xzare/engine':
+        specifier: workspace:*
+        version: link:../../packages/engine
+
+  apps/pos:
+    dependencies:
+      '@node-rs/argon2-win32-x64-msvc':
+        specifier: 2.2.1
+        version: 2.2.1
+      '@xzare/barcode':
+        specifier: workspace:*
+        version: link:../../packages/barcode
+      '@xzare/core':
+        specifier: workspace:*
+        version: link:../../packages/core
+      '@xzare/engine':
+        specifier: workspace:*
+        version: link:../../packages/engine
+
+  apps/real-estate:
+    dependencies:
+      '@node-rs/argon2-win32-x64-msvc':
+        specifier: 2.2.1
+        version: 2.2.1
+      '@xzare/barcode':
+        specifier: workspace:*
+        version: link:../../packages/barcode
+      '@xzare/core':
+        specifier: workspace:*
+        version: link:../../packages/core
+      '@xzare/engine':
+        specifier: workspace:*
+        version: link:../../packages/engine
+
   apps/restaurant:
+    dependencies:
+      '@node-rs/argon2-win32-x64-msvc':
+        specifier: 2.2.1
+        version: 2.2.1
+      '@xzare/barcode':
+        specifier: workspace:*
+        version: link:../../packages/barcode
+      '@xzare/core':
+        specifier: workspace:*
+        version: link:../../packages/core
+      '@xzare/engine':
+        specifier: workspace:*
+        version: link:../../packages/engine
+
+  apps/salon:
+    dependencies:
+      '@node-rs/argon2-win32-x64-msvc':
+        specifier: 2.2.1
+        version: 2.2.1
+      '@xzare/barcode':
+        specifier: workspace:*
+        version: link:../../packages/barcode
+      '@xzare/core':
+        specifier: workspace:*
+        version: link:../../packages/core
+      '@xzare/engine':
+        specifier: workspace:*
+        version: link:../../packages/engine
+
+  apps/service-center:
+    dependencies:
+      '@node-rs/argon2-win32-x64-msvc':
+        specifier: 2.2.1
+        version: 2.2.1
+      '@xzare/barcode':
+        specifier: workspace:*
+        version: link:../../packages/barcode
+      '@xzare/core':
+        specifier: workspace:*
+        version: link:../../packages/core
+      '@xzare/engine':
+        specifier: workspace:*
+        version: link:../../packages/engine
+
+  apps/workshop:
     dependencies:
       '@node-rs/argon2-win32-x64-msvc':
         specifier: 2.2.1

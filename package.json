@@ -2,8 +2,8 @@
   "name": "xzare-suite",
   "version": "0.1.0",
   "private": true,
-  "description": "Xzare Business Software Suite — commercial desktop business software for the Egyptian market",
-  "license": "UNLICENSED",
+  "description": "Arabic-first open-source business engine: exact money, SQLite, barcode and shared desktop services",
+  "license": "AGPL-3.0-only",
   "type": "module",
   "engines": {
     "node": ">=22.0.0",
@@ -105,5 +105,13 @@
     "typescript": "5.9.3",
     "vite": "7.3.6",
     "vitest": "5.0.3"
+  },
+  "packageManager": "pnpm@10.12.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yousefbadran6888-ux/xzare-business-engine.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yousefbadran6888-ux/xzare-business-engine/issues"
   }
 }

@@ -1,0 +1,13 @@
+Xzare Business Engine
+Copyright (c) 2026 Xzare Software Solutions and contributors.
+
+First-party source and documentation in this revision are licensed under
+GNU Affero General Public License version 3 only (AGPL-3.0-only).
+The complete license text is in LICENSE.
+
+Third-party code, dependencies, fonts and assets retain their original licenses.
+Preserve apps/*/THIRD_PARTY_NOTICES.txt and license files distributed with
+dependencies and Electron/Chromium.
+
+Xzare and Xzare Software Solutions identify the original project.
+No trademark endorsement of modified or third-party distributions is granted.

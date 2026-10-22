@@ -1,6 +1,6 @@
 # Xzare: thirty products on shared engines
 
-This is the user's approved product scope and implementation map, not a list of thirty shipped applications. POS 0.3 and Restaurant 0.1 now have separate desktop applications and review installers built on the working Identity/Commerce/Inventory/database/barcode engines. Restaurant adds table orders, KDS, frozen recipes and costs, driver delivery, reservations and waste reporting. The other 28 products remain planned. Customer release still requires live licensing, publisher signing and real-device acceptance. See [Restaurant operations](RESTAURANT_OPERATIONS.md).
+This is the product scope and implementation map, not a list of thirty shipped applications. Products 1–17 have application source directories in this repository. Product 18 (Property Manager) has a design specification only; products 19–30 remain planned. Source presence is not customer-release certification. Branded desktop distribution still requires deployment configuration, publisher signing and real-device acceptance. See the [current roadmap](../ROADMAP.md) and [source license boundaries](OPEN_SOURCE.md).
 
 Every product shares Identity (users, roles, audit), Finance (payments/cash as applicable), database infrastructure, Arabic/English support, backup, licensing and reporting/printing infrastructure. Industry modules add genuine business workflows rather than cloning the core.
 

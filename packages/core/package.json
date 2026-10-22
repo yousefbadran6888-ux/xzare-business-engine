@@ -14,5 +14,6 @@
   },
   "scripts": {
     "build": "tsc --build"
-  }
+  },
+  "license": "AGPL-3.0-only"
 }

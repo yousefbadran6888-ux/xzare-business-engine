@@ -17,5 +17,6 @@
     "@xzare/barcode": "workspace:*",
     "@node-rs/argon2": "2.2.1",
     "zod": "4.1.12"
-  }
+  },
+  "license": "AGPL-3.0-only"
 }

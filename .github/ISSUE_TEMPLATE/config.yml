@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Private security report / بلاغ أمني خاص
+    url: https://github.com/yousefbadran6888-ux/xzare-business-engine/security/policy
+    about: Read the private reporting instructions before sharing vulnerability details.

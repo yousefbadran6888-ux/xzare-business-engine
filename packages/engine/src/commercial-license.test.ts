@@ -50,7 +50,16 @@ it.each([1, 2] as const)('enforces %s device quota and returns only registered d
   try { f.authority.handle(request) } catch (error: any) {
     expect(error.name).toBe('DeviceQuotaExceeded')
     expect(error.devices).toHaveLength(maxDevices)
-    expect(error.devices[0]).toEqual({ id: clients[0]!.device, deviceName: 'Workstation 1', activatedAt: f.now(), lastSeenAt: f.now() })
+    // The fixture freezes time: equal activation timestamps need not preserve
+    // registration order. Verify every registered device and its exact fields.
+    expect(error.devices).toEqual(expect.arrayContaining(
+      clients.slice(0, maxDevices).map((client, index) => ({
+        id: client.device,
+        deviceName: `Workstation ${index + 1}`,
+        activatedAt: f.now(),
+        lastSeenAt: f.now(),
+      })),
+    ))
     expect(JSON.stringify(error.devices)).not.toMatch(/PRIVATE|PUBLIC|fingerprint/)
   }
   await clients[0]!.renew()
